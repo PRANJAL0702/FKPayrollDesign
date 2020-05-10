@@ -2,7 +2,7 @@
 ## Flipkart Java Assessment Repository
 
   __The following Java Payroll Design is basically made with the following purposes:__
-      *Identify Types and Define Types
+      Identify Types and Define Types
       
       Design Role and Responsibilities
       
