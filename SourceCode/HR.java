@@ -34,7 +34,7 @@ class HR {
 						    	int id=rs.getInt(1);
 						    	double payment=rs.getInt(2);
 						    	//System.out.println(payment);
-						    	//payment=payment+getCommission(id,"Hourly");
+						    	payment=payment+getCommission(id,"Hourly");
 						    	//System.out.println(payment);
 						    	Statement stmt2=con.createStatement();
 						    	//System.out.println(id+"will get"+payment);
@@ -83,7 +83,7 @@ class HR {
 				    	Statement stmt3=con.createStatement(); 
 				    	String query3="Update MonthlyEmployee Set LastPayment='"+java.time.LocalDate.now()+"'";
 				    	stmt3.executeUpdate(query3);
-				    	//Payment=Payment+getCommission(id,"Monthly");
+				    	Payment=Payment+getCommission(id,"Monthly");
 				    	Statement stmt4=con.createStatement(); 
 				    	String query4="Update MonthlyEmployee Set LastPaymentMade="+Payment+" where id="+id;
 				    	stmt4.executeUpdate(query4);
@@ -110,4 +110,35 @@ class HR {
 	}
 
 
+
+	public static double getCommission(int i,String type) {
+
+		double commission=0;
+		try{  
+		    Class.forName("com.mysql.jdbc.Driver");  
+		    Connection con=DriverManager.getConnection(  
+		    "jdbc:mysql://localhost:3306/Flipkart?characterEncoding=latin1","root","178048");  
+		    //here sonoo is database name, root is username and password  
+		    Statement stmt=con.createStatement();
+		    String query="Select sum(commission) as Sum from CommissionTable where id="+i+" and type='"+type+"' and (DATEDIFF(date,CURDATE())=14)";
+		    //String query="Select (DATEDIFF(date,CURDATE())) as Days from CommissionTable";
+		    ResultSet rs=stmt.executeQuery(query);  
+		    while(rs.next())  {
+		    	System.out.println("Checking"+rs.getDouble(1));
+		    	commission+=rs.getDouble("Sum"); 
+
+		    }
+		    //commission=rs.getDouble("Sum");  
+		    Statement stmt2=con.createStatement();
+		    String query1="Delete from CommissionTable where id="+i;
+		    int t1=stmt2.executeUpdate(query1);
+		    con.close();  
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		} 
+		//System.out.println("Giving commission"+commission);
+		return commission;
+	}
 }

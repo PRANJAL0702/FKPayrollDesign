@@ -123,6 +123,30 @@ LOCK TABLES `MonthlyEmployee` WRITE;
 INSERT INTO `MonthlyEmployee` VALUES (1,'Pranjal',15000,'Cheque','123','2020-05-10',4000,15000,'Draft');
 /*!40000 ALTER TABLE `MonthlyEmployee` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CommissionTable`
+--
+
+DROP TABLE IF EXISTS `CommissionTable`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `CommissionTable` (
+  `id` int DEFAULT NULL,
+  `type` varchar(20) DEFAULT NULL,
+  `Commission` double DEFAULT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CommissionTable`
+--
+
+LOCK TABLES `CommissionTable` WRITE;
+/*!40000 ALTER TABLE `CommissionTable` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CommissionTable` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -133,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-10 19:17:43
+-- Dump completed on 2020-05-10 19:18:56
