@@ -46,6 +46,8 @@ class HR {
 						    	Statement stmt3=con.createStatement(); 
 						    	String query3="Update HourlyEmployee Set LastSalaryDate='"+java.time.LocalDate.now()+"' where id="+id;
 						    	stmt3.executeUpdate(query3);
+						    	LastPaymentWay l1=new LastPaymentWay();
+						    	l1.SetPaymentWay(id,"HourlyEmployee");
 						    }
 						      
 						    con.close();  
@@ -87,6 +89,9 @@ class HR {
 				    	Statement stmt4=con.createStatement(); 
 				    	String query4="Update MonthlyEmployee Set LastPaymentMade="+Payment+" where id="+id;
 				    	stmt4.executeUpdate(query4);
+				    	LastPaymentWay l1=new LastPaymentWay();
+						
+						l1.SetPaymentWay(id,"MonthlyEmployee");
 				    }
 				      
 				    con.close();  
@@ -124,7 +129,7 @@ class HR {
 		    //String query="Select (DATEDIFF(date,CURDATE())) as Days from CommissionTable";
 		    ResultSet rs=stmt.executeQuery(query);  
 		    while(rs.next())  {
-		    	System.out.println("Checking"+rs.getDouble(1));
+		    	//System.out.println("Checking"+rs.getDouble(1));
 		    	commission+=rs.getDouble("Sum"); 
 
 		    }
