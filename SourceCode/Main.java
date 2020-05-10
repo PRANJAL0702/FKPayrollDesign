@@ -13,11 +13,13 @@ public class Main {
 			//Administrator a1=new Administrator();
 			//System.out.println("\n \n");
 			int q=1;
+			String name;
+			String password;
 			System.out.println("Enter Your Credentials");
 			System.out.println("Username: ");
-			String name=br.readLine();
+			name=br.readLine();
 			System.out.println("Password: ");
-			String password=br.readLine();
+			password=br.readLine();
 			try{  
     				Class.forName("com.mysql.jdbc.Driver");  
 				    Connection con=DriverManager.getConnection(  

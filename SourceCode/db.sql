@@ -37,6 +37,29 @@ LOCK TABLES `employee` WRITE;
 INSERT INTO `employee` VALUES (3,'Pranjal');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AdminDatabase`
+--
+
+DROP TABLE IF EXISTS `AdminDatabase`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `AdminDatabase` (
+  `Name` varchar(25) DEFAULT NULL,
+  `Password` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AdminDatabase`
+--
+
+LOCK TABLES `AdminDatabase` WRITE;
+/*!40000 ALTER TABLE `AdminDatabase` DISABLE KEYS */;
+INSERT INTO `AdminDatabase` VALUES ('Admin1','1234'),('Admin2','12345');
+/*!40000 ALTER TABLE `AdminDatabase` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -47,4 +70,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-10 18:22:01
+-- Dump completed on 2020-05-10 18:35:12

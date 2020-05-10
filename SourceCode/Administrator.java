@@ -5,7 +5,7 @@ import java.sql.*;
 class Administrator {
 
 		private String Username;
-
+		static int id=1;
 		Administrator(String Username) {
 			this.Username=Username;
 		}
@@ -14,7 +14,7 @@ class Administrator {
 			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 
 			System.out.println("Hey! You Have Sucessfully Entered Your Credentials");
-			System.out.println("Can You Please Enter Your Desired Work: \n \t Press 1 to Enter a New Employee \n \t");
+			System.out.println("Can You Please Enter Your Desired Work: \n \t Press 1 to Enter a New Employee \n 2 to Drop an Employee\t");
 
 			int n=Integer.parseInt(br.readLine());
 
@@ -25,8 +25,8 @@ class Administrator {
 					while(loop==1){
 							System.out.println("Enter Username");
 							String user=br.readLine();
-							System.out.println("Enter ID");
-							int id=Integer.parseInt(br.readLine());
+							//System.out.println("Enter ID");
+							//int id=Integer.parseInt(br.readLine());
 							try{  
 							    Class.forName("com.mysql.jdbc.Driver");  
 							    Connection con=DriverManager.getConnection(  
@@ -34,6 +34,7 @@ class Administrator {
 							    //here sonoo is database name, root is username and password  
 							    Statement stmt=con.createStatement();  
 							    int t=stmt.executeUpdate("insert into employee(id,user) values("+id+",'"+user+"')");  
+							    id+=1;
 							    //while(rs.next())  
 							    //System.out.println(rs.getInt(1)+"  "+rs.getString(2));  
 							    System.out.println("Successfully Entered");
@@ -50,6 +51,25 @@ class Administrator {
 
 					}
 					
+			}
+
+			if(n==2) {
+					try{  
+								System.out.println("Enter ID for deletion");
+								int iddel=Integer.parseInt(br.readLine());
+							    Class.forName("com.mysql.jdbc.Driver");  
+							    Connection con=DriverManager.getConnection(  
+							    "jdbc:mysql://localhost:3306/Flipkart?characterEncoding=latin1","root","178048");  
+							    //here sonoo is database name, root is username and password  
+							    Statement stmt=con.createStatement();
+							    int t=stmt.executeUpdate("delete from employee where id="+iddel);
+						}
+										catch(Exception e)
+										{
+											 System.out.println(e);
+										} 
+
+
 			}
 
 			else {
