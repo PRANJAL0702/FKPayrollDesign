@@ -40,7 +40,11 @@ class HR {
 						    	//System.out.println(id+"will get"+payment);
 						    	String query1="Delete from HourlyEmployeeDaily where id="+id;
 						    	stmt2.executeUpdate(query1);
+						    	Union u1=new Union();
+						    	payment=payment-u1.deduction(id,"Hourly");
+						    	//System.out.println(id+"will get"+payment);
 						    	Statement stmt1=con.createStatement(); 
+
 						    	String query2="Update HourlyEmployee Set LastPayment="+payment+"where id="+id;
 						    	stmt1.executeUpdate(query2);
 						    	Statement stmt3=con.createStatement(); 
@@ -48,6 +52,7 @@ class HR {
 						    	stmt3.executeUpdate(query3);
 						    	LastPaymentWay l1=new LastPaymentWay();
 						    	l1.SetPaymentWay(id,"HourlyEmployee");
+
 						    }
 						      
 						    con.close();  
@@ -82,6 +87,8 @@ class HR {
 				    while(rs.next())  {
 				    	int id=rs.getInt(1);
 				    	double Payment=rs.getDouble(2);
+				    	Union u1=new Union();
+						Payment=Payment-u1.deduction(id,"Monthly");
 				    	Statement stmt3=con.createStatement(); 
 				    	String query3="Update MonthlyEmployee Set LastPayment='"+java.time.LocalDate.now()+"'";
 				    	stmt3.executeUpdate(query3);

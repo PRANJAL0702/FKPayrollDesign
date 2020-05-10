@@ -16,37 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `HourlyEmployee`
---
-
-DROP TABLE IF EXISTS `HourlyEmployee`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `HourlyEmployee` (
-  `id` int NOT NULL,
-  `Name` varchar(30) DEFAULT NULL,
-  `LastSalaryDate` date DEFAULT NULL,
-  `modeofpayment` varchar(40) DEFAULT NULL,
-  `LastPayment` double DEFAULT NULL,
-  `Password` varchar(30) DEFAULT '123',
-  `Commission` double DEFAULT '0',
-  `LastPaymentMadeWay` varchar(30) DEFAULT NULL,
-  `hourlyrate` int DEFAULT '100',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `HourlyEmployee`
---
-
-LOCK TABLES `HourlyEmployee` WRITE;
-/*!40000 ALTER TABLE `HourlyEmployee` DISABLE KEYS */;
-INSERT INTO `HourlyEmployee` VALUES (1,'Pranjal','2020-05-10',NULL,800,'123',0,NULL,100),(2,'Shyamu','2020-05-10',NULL,600,'123',0,NULL,100),(3,'Ramu',NULL,NULL,NULL,'123',0,NULL,100),(4,'Riya','2020-05-10','Hand in Hand',0,'123',0,'Hand in Hand',100);
-/*!40000 ALTER TABLE `HourlyEmployee` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `AdminDatabase`
 --
 
@@ -91,6 +60,37 @@ CREATE TABLE `CommissionTable` (
 LOCK TABLES `CommissionTable` WRITE;
 /*!40000 ALTER TABLE `CommissionTable` DISABLE KEYS */;
 /*!40000 ALTER TABLE `CommissionTable` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `HourlyEmployee`
+--
+
+DROP TABLE IF EXISTS `HourlyEmployee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `HourlyEmployee` (
+  `id` int NOT NULL,
+  `Name` varchar(30) DEFAULT NULL,
+  `LastSalaryDate` date DEFAULT NULL,
+  `modeofpayment` varchar(40) DEFAULT NULL,
+  `LastPayment` double DEFAULT NULL,
+  `Password` varchar(30) DEFAULT '123',
+  `Commission` double DEFAULT '0',
+  `LastPaymentMadeWay` varchar(30) DEFAULT NULL,
+  `hourlyrate` int DEFAULT '100',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `HourlyEmployee`
+--
+
+LOCK TABLES `HourlyEmployee` WRITE;
+/*!40000 ALTER TABLE `HourlyEmployee` DISABLE KEYS */;
+INSERT INTO `HourlyEmployee` VALUES (1,'Pranjal','2020-05-10',NULL,800,'123',0,NULL,100),(2,'Shyamu','2020-05-10',NULL,600,'123',0,NULL,100),(3,'Ramu',NULL,NULL,NULL,'123',0,NULL,100),(4,'Riya','2020-05-10','Hand in Hand',0,'123',0,'Hand in Hand',100);
+/*!40000 ALTER TABLE `HourlyEmployee` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -147,6 +147,55 @@ LOCK TABLES `MonthlyEmployee` WRITE;
 INSERT INTO `MonthlyEmployee` VALUES (1,'Pranjal',15000,'Cheque','123','2020-05-10',4000,15000,'Draft');
 /*!40000 ALTER TABLE `MonthlyEmployee` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `employee`
+--
+
+DROP TABLE IF EXISTS `employee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `employee` (
+  `id` int DEFAULT NULL,
+  `user` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee`
+--
+
+LOCK TABLES `employee` WRITE;
+/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES (3,'Pranjal');
+/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `membership`
+--
+
+DROP TABLE IF EXISTS `membership`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `membership` (
+  `id` int DEFAULT NULL,
+  `tax_type` varchar(20) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `EmpType` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `membership`
+--
+
+LOCK TABLES `membership` WRITE;
+/*!40000 ALTER TABLE `membership` DISABLE KEYS */;
+INSERT INTO `membership` VALUES (1,'Cess',300,'2020-05-10','Monthly'),(1,'Cess',200,'2020-05-05','Monthly');
+/*!40000 ALTER TABLE `membership` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -157,4 +206,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-10 19:26:42
+-- Dump completed on 2020-05-10 19:28:58

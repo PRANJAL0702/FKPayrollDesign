@@ -7,7 +7,7 @@ public class Main {
 
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Hey! Welcome to Payroll System");
-		System.out.println("\tPress 1 for Admin Rights \n \t Press 2 for Employee");
+		System.out.println("\tPress 1 for Admin Rights \n \t Press 2 for Employee \n \t Press 3 to Enter as A Union");
 		int a=sc.nextInt();
 		if(a==1) {
 			//Administrator a1=new Administrator();
@@ -117,6 +117,11 @@ public class Main {
 					}
 				}
 			}
+		}
+
+		if(a==3) {
+			Union u1=new Union();
+			u1.addtax();
 		}
 
 
