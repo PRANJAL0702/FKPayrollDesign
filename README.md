@@ -3,23 +3,41 @@
 
   __The following Java Payroll Design is basically made with the following purposes:__
       *Identify Types and Define Types
+      
       Design Role and Responsibilities
+      
       Design Towards Single Responsibility
+      
       Design Towards Loose Coupling
+      
       Design For Changeability and Future Requirements
+      
       Evaluate Various Design Choices and Reason/Prove It
+      
       Define Design Objectives and Approaches
+      
       Appreciating Design Thinking
+      
       Drive Design By Convention vs. Configurations
+      
       Design By Contracts
+      
       Drive Design By Definitions
+      
           Design with Types
+          
           Design For Localisation/Encapsulation
+          
           Design For Invariance/Polymorphism
+          
           Design For Evolution/Extension and Change
+      
       Appreciating OOAD in Java
+      
       Representing Design in UML Diagrams
+      
       Writing Design Document
+      
       Exploring Design Strategies, Discussing and Reasoning Design*
       
     **The Main Features as Implemented in Various Commits include**
