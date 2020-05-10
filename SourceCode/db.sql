@@ -73,7 +73,7 @@ CREATE TABLE `HourlyEmployee` (
   `id` int NOT NULL,
   `Name` varchar(30) DEFAULT NULL,
   `LastSalaryDate` date DEFAULT NULL,
-  `modeofpayment` varchar(40) DEFAULT NULL,
+  `modeofpayment` varchar(40) DEFAULT 'Online',
   `LastPayment` double DEFAULT NULL,
   `Password` varchar(30) DEFAULT '123',
   `Commission` double DEFAULT '0',
@@ -89,7 +89,7 @@ CREATE TABLE `HourlyEmployee` (
 
 LOCK TABLES `HourlyEmployee` WRITE;
 /*!40000 ALTER TABLE `HourlyEmployee` DISABLE KEYS */;
-INSERT INTO `HourlyEmployee` VALUES (1,'Pranjal','2020-05-10',NULL,800,'123',0,NULL,100),(2,'Shyamu','2020-05-10',NULL,600,'123',0,NULL,100),(3,'Ramu',NULL,NULL,NULL,'123',0,NULL,100),(4,'Riya','2020-05-10','Hand in Hand',0,'123',0,'Hand in Hand',100);
+INSERT INTO `HourlyEmployee` VALUES (1,'Pranjal','2020-05-10','Online',980,'123',20,'Online',140);
 /*!40000 ALTER TABLE `HourlyEmployee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `MonthlyEmployee` (
 
 LOCK TABLES `MonthlyEmployee` WRITE;
 /*!40000 ALTER TABLE `MonthlyEmployee` DISABLE KEYS */;
-INSERT INTO `MonthlyEmployee` VALUES (1,'Pranjal',15000,'Cheque','123','2020-05-10',4000,15000,'Draft');
+INSERT INTO `MonthlyEmployee` VALUES (1,'Ram',0,NULL,'123',NULL,0,NULL,NULL),(2,'Kanha',0,NULL,'123',NULL,0,NULL,NULL);
 /*!40000 ALTER TABLE `MonthlyEmployee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,7 +193,7 @@ CREATE TABLE `membership` (
 
 LOCK TABLES `membership` WRITE;
 /*!40000 ALTER TABLE `membership` DISABLE KEYS */;
-INSERT INTO `membership` VALUES (1,'Cess',300,'2020-05-10','Monthly'),(1,'Cess',200,'2020-05-05','Monthly');
+INSERT INTO `membership` VALUES (1,'Hourly',100,'2020-05-10','HourlyEmployee');
 /*!40000 ALTER TABLE `membership` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -206,4 +206,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-10 19:28:58
+-- Dump completed on 2020-05-10 19:45:56

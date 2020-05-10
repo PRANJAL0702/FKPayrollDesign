@@ -21,6 +21,9 @@ class HR {
 				if(dayOfWeek==1) {
 
 					System.out.println("Hurray Payment Time");
+					System.out.println("Enter the Date ");
+
+					String date1 = br.readLine();
 					try{  
 		    				Class.forName("com.mysql.jdbc.Driver");  
 		    				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Flipkart?characterEncoding=latin1","root","178048");  
@@ -28,7 +31,7 @@ class HR {
 						    //long millis=System.currentTimeMillis();  
 							//java.sql.Date date=new java.sql.Date(millis);  
 						    Statement stmt=con.createStatement(); 
-						    String query="Select id,sum(wageforday) as thisweek from HourlyEmployeeDaily group by id order by id asc";
+						    String query="Select id,sum(wageforday) as thisweek from HourlyEmployeeDaily where Date(date)<'"+date1+"' group by id order by id asc";
 						    ResultSet rs=stmt.executeQuery(query);  
 						    while(rs.next())  {
 						    	int id=rs.getInt(1);
@@ -38,7 +41,7 @@ class HR {
 						    	//System.out.println(payment);
 						    	Statement stmt2=con.createStatement();
 						    	//System.out.println(id+"will get"+payment);
-						    	String query1="Delete from HourlyEmployeeDaily where id="+id;
+						    	String query1="Delete from HourlyEmployeeDaily where Date(date)<'"+date1+"' and id="+id;
 						    	stmt2.executeUpdate(query1);
 						    	Union u1=new Union();
 						    	payment=payment-u1.deduction(id,"Hourly");
@@ -132,7 +135,7 @@ class HR {
 		    "jdbc:mysql://localhost:3306/Flipkart?characterEncoding=latin1","root","178048");  
 		    //here sonoo is database name, root is username and password  
 		    Statement stmt=con.createStatement();
-		    String query="Select sum(commission) as Sum from CommissionTable where id="+i+" and type='"+type+"' and (DATEDIFF(date,CURDATE())=14)";
+		    String query="Select sum(commission) as Sum from CommissionTable where id="+i+" and type='"+type+"' and (DATEDIFF(date,CURDATE())>14)";
 		    //String query="Select (DATEDIFF(date,CURDATE())) as Days from CommissionTable";
 		    ResultSet rs=stmt.executeQuery(query);  
 		    while(rs.next())  {
